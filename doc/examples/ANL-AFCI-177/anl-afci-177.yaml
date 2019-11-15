@@ -1,0 +1,22 @@
+metadata:
+  version: uncontrolled
+# begin-settings
+settings:
+  availabilityFactor: 0.9
+  power: 1000000000.0
+  cycleLength: 411.11
+# end-section-1
+  loadingFile: anl-afci-177-blueprints.yaml
+  shuffleLogic: anl-afci-177-fuelManagement.py
+  fuelHandlerName: SampleShuffler
+# end-section-2
+  nCycles: 1
+  burnSteps: 2
+  buGroups:
+    - 100
+  comment: ANL-AFCI-177 CR 1.0 metal core but with HALEU instead of TRU
+  genXS: Neutron
+  xsKernel: DRAGON
+  dragonDataPath: C:/Users/myoung/codes/dragonv5/draglibendfb7r1SHEM361
+  numProcessors: 36
+  subchan: true
