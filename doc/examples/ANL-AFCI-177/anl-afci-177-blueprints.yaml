@@ -1,5 +1,32 @@
 # The comments in this file are important, as they are used
 # to bring in sections of this file into the tutorial in the docs.
+nuclide flags:
+    U235: {burn: false, xs: true}
+    U238: {burn: false, xs: true}
+    PU236: {burn: false, xs: true}
+    PU238: {burn: false, xs: true}
+    PU239: {burn: false, xs: true}
+    PU240: {burn: false, xs: true}
+    PU241: {burn: false, xs: true}
+    PU242: {burn: false, xs: true}
+    B10: {burn: false, xs: true}
+    B11: {burn: false, xs: true}
+    ZR: {burn: false, xs: true}
+    C: {burn: false, xs: true}
+    SI: {burn: false, xs: true}
+    V: {burn: false, xs: true}
+    CR: {burn: false, xs: true}
+    MN55: {burn: false, xs: true}
+    FE: {burn: false, xs: true}
+    NI: {burn: false, xs: true}
+    MO: {burn: false, xs: true}
+    W182: {burn: false, xs: true}
+    W183: {burn: false, xs: true}
+    W184: {burn: false, xs: true}
+    W186: {burn: false, xs: true}
+    NA23: {burn: false, xs: true}
+    HE4: {burn: false, xs: true}
+
 # start-block-clad
 blocks:
     fuel: &block_fuel
