@@ -27,9 +27,9 @@ Now that you have the ARMI components installed, you will also need to get set
 up with Dragon. See the links above for some guidance on that. You will also
 need to grab a data library to be able to run Dragon.
 
-You should now be ready to run cases with the example application. This is
-probably not going to be super earth-shattering, though, since all it can do
-right now is produce cross sections (using the Dragon plugin).
+With Dragon set up properly, you should now be ready to run cases with the
+example application. This is probably not going to be super earth-shattering,
+though, since all it can do right now is produce cross sections.
 
 Chances are, you are looking at this repository because you wish to make an ARMI
 application of your own, or to experiment with adding a new ARMI plugin to an
@@ -43,8 +43,8 @@ now:
 There is a simple example case in `doc/examples/ANL-AFCI-177/`, which is
 explained in more detail
 [here](https://terrapower.github.io/armi/user/tutorials/walkthrough_inputs.html).
-Now you should be able to change directories into `doc/examples/ANL-AFCI-177/`,
-and run the case with:
+You should be able to change directories into `doc/examples/ANL-AFCI-177/`, and
+run the case with:
 
     > python -m armiexample run anl-afci-177.yaml
 
