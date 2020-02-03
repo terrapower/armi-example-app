@@ -31,9 +31,9 @@ setup(
     url="https://github.com/terrapower/armi/",
     license="Apache 2.0",
     long_description=README,
-    python_requres=">=3.6",
+    python_requires=">=3.6",
     packages=find_packages(),
-    entry_points={"console_scripts": ["armiexample = armi.__main__:main"]},
+    entry_points={"console_scripts": ["armiexample = armiexample.__main__:main"]},
     install_requires=[
         "armi @ git+https://github.com/terrapower/armi",
         "terrapower-dragon @ git+https://github.com/terrapower/dragon-armi-plugin",
