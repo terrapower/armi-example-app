@@ -20,17 +20,31 @@ from this GitHub repository with:
 This will cause `pip` to also install all of the dependencies of ARMI, the
 Dragon ARMI plugin, and their dependencies in turn. You may notice that the
 `armi` and `dragon-armi-plugin` packages are themselves coming from GitHub
-repositories. This is because, for a number of reasons, they cannot be hosted on
-the standard [Python Package Index](http://pypi.org).
+repositories. This is because, for a number of reasons, they cannot be hosted as
+wheels on the standard [Python Package Index](http://pypi.org).
 
 Now that you have the ARMI components installed, you will also need to get set
 up with Dragon. See the links above for some guidance on that. You will also
 need to grab a data library to be able to run Dragon.
 
-There is a pretty simple example case in `doc/examples/ANL-AFCI-177/`, which is
+You should now be ready to run cases with the example application. This is
+probably not going to be super earth-shattering, though, since all it can do
+right now is produce cross sections (using the Dragon plugin).
+
+Chances are, you are looking at this repository because you wish to make an ARMI
+application of your own, or to experiment with adding a new ARMI plugin to an
+existing application. If that's the case, you probably want to clone the whole
+repository so that you can make modifications and see the documentation. Do that
+now:
+
+    > git clone https://github.com/terrapower/armi-example-app
+    > cd armi-example-app
+
+There is a simple example case in `doc/examples/ANL-AFCI-177/`, which is
 explained in more detail
 [here](https://terrapower.github.io/armi/user/tutorials/walkthrough_inputs.html).
-Change directories into `doc/examples/ANL-AFCI-177/`, and run the case with:
+Now you should be able to change directories into `doc/examples/ANL-AFCI-177/`,
+and run the case with:
 
     > python -m armiexample run anl-afci-177.yaml
 
