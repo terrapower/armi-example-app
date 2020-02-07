@@ -16,16 +16,16 @@ nuclide flags:
     SI: {burn: false, xs: true}
     V: {burn: false, xs: true}
     CR: {burn: false, xs: true}
-    MN55: {burn: false, xs: true}
+    MN: {burn: false, xs: true}
     FE: {burn: false, xs: true}
     NI: {burn: false, xs: true}
     MO: {burn: false, xs: true}
-    W182: {burn: false, xs: true}
+    W: {burn: false, xs: true}
     W183: {burn: false, xs: true}
     W184: {burn: false, xs: true}
     W186: {burn: false, xs: true}
-    NA23: {burn: false, xs: true}
-    HE4: {burn: false, xs: true}
+    NA: {burn: false, xs: true}
+    HE: {burn: false, xs: true}
 
 # start-block-clad
 blocks:
@@ -364,9 +364,8 @@ systems:
           x: 0.0
           y: 0.0
           z: 0.0
-grids: 
-    core:
-        lattice file: anl-afci-177-coreMap.yaml
-        
+grids:
+    core: !include anl-afci-177-coremap.yaml
+
 # end-systems-section
-    
+
