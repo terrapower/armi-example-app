@@ -20,10 +20,7 @@ nuclide flags:
     FE: {burn: false, xs: true}
     NI: {burn: false, xs: true}
     MO: {burn: false, xs: true}
-    W: {burn: false, xs: true}
-    W183: {burn: false, xs: true}
-    W184: {burn: false, xs: true}
-    W186: {burn: false, xs: true}
+    W: {burn: false, xs: true, expandTo: ["W182", "W183", "W184", "W186"]}
     NA: {burn: false, xs: true}
     HE: {burn: false, xs: true}
 
