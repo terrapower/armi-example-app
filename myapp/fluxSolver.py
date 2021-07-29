@@ -17,7 +17,7 @@ def setFakePower(core):
     fuelBlocks = core[0].getBlocks(Flags.FUEL)
     topFuelZ = fuelBlocks[-1].spatialLocator.getGlobalCoordinates()[2]
     bottomFuelZ = fuelBlocks[0].spatialLocator.getGlobalCoordinates()[2]
-    coreMidPlane = topFuelZ - bottomFuelZ / 2.0
+    coreMidPlane = (topFuelZ - bottomFuelZ) / 2.0 + bottomFuelZ
     center = np.array([0, 0, coreMidPlane])
     peakPower = 1e6
     mgFluxBase = np.arange(5)

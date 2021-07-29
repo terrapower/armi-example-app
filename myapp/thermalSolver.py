@@ -43,7 +43,7 @@ def computeIdealizedFlow(a):
 
 def computeAxialCoolantTemperature(a, massFlow):
     """Compute block-level coolant inlet/outlet/avg temp and velocity."""
-    # solve q''' = mdot * Cp * dT for dT this time
+    # solve Qdot = mdot * Cp * dT for dT this time
     inlet = inletInC
     for b in a:
         b.p.THcoolantInletT = inlet
