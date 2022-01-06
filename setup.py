@@ -16,6 +16,8 @@
 import re
 from setuptools import setup, find_packages
 
+from myapp import __version__
+
 
 with open("README.md") as f:
     README = f.read()
@@ -23,7 +25,7 @@ with open("README.md") as f:
 
 setup(
     name="armi-example-app",
-    version="0.1.1",
+    version=__version__,
     description="A simple example application built using the Advanced Reactor "
     "Modeling Interface (ARMI)",
     author="TerraPower, LLC",
