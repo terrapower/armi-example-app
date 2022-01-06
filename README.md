@@ -1,4 +1,5 @@
 # Example ARMI Application
+
 This is a simple example application using the [Advanced Reactor Modeling
 Interface (ARMI)](https://github.com/terrapower/armi). It is intended to serve
 as a jumping-off point for new ARMI users and developers. Currently, it only
@@ -9,7 +10,9 @@ code](https://www.polymtl.ca/merlin/version5.htm). However, as new ARMI plugins
 are made available to the public, this project may grow to encompass them as
 well.
 
+
 # Getting Started
+
 As with other parts of the ARMI ecosystem, this project requires Python;
 specifically Python 3.6 or greater. With Python installed, the Example ARMI App
 can be installed in a couple of ways. The simplest is to install it straight
@@ -39,6 +42,14 @@ now:
 
     > git clone https://github.com/terrapower/armi-example-app
     > cd armi-example-app
+
+To install (on Linux):
+
+    > python -m venv venv
+    > source venv/bin/activate
+    > pip install -U pip
+    > pip install -e .
+    > python -m myapp --version
 
 There is a simple example case in `doc/examples/ANL-AFCI-177/`, which is
 explained in more detail
