@@ -11,6 +11,9 @@ class ExampleApp(App):
         # activate all built-in plugins
         App.__init__(self)
 
+        # (optionally) set the name class attribute
+        name = "example-app"
+
         # register our plugin with the plugin manager
         self._pm.register(DummyPhysicsPlugin)
 
