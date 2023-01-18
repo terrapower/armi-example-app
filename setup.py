@@ -13,17 +13,21 @@
 # limitations under the License.
 
 """Setup.py script for the Example App for ARMI"""
-import re
 from setuptools import setup, find_packages
 
 
+# grab __version__ from meta.py, without calling __init__.py
+this_file = pathlib.Path(__file__).parent.absolute()
+exec(open(os.path.join(this_file, "myapp", "__init__.py"), "r").read())
+
+# grab the README text
 with open("README.md") as f:
     README = f.read()
 
 
 setup(
     name="armi-example-app",
-    version="0.1.1",
+    version=__version__,
     description="A simple example application built using the Advanced Reactor "
     "Modeling Interface (ARMI)",
     author="TerraPower, LLC",
@@ -31,7 +35,7 @@ setup(
     url="https://github.com/terrapower/armi/",
     license="Apache 2.0",
     long_description=README,
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     packages=find_packages(),
     entry_points={"console_scripts": ["armiexample = armiexample.__main__:main"]},
     install_requires=[
