@@ -1,6 +1,5 @@
 """Application module"""
 
-import armi
 from armi.apps import App
 
 from myapp.plugin import DummyPhysicsPlugin

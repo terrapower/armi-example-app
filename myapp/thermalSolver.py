@@ -1,11 +1,6 @@
 from armi import interfaces
-from armi.reactor.flags import Flags
 from armi import runLog
-
-# hard coded inlet/outlet temperatures
-# NOTE: can make these user settings
-inletInC = 360.0
-outletInC = 520.0
+from armi.reactor.flags import Flags
 
 
 class ThermalInterface(interfaces.Interface):
@@ -14,37 +9,35 @@ class ThermalInterface(interfaces.Interface):
     def interactEveryNode(self, cycle=None, timeNode=None):
         runLog.info("Computing idealized flow rate")
         for assembly in self.r.core:
-            runThermalHydraulics(assembly)
+            runThermalHydraulics(assembly, self.cs)
 
 
-def runThermalHydraulics(assembly):
-    massFlow = computeIdealizedFlow(assembly)
-    computeAxialCoolantTemperature(assembly, massFlow)
+def runThermalHydraulics(assembly, cs):
+    massFlow = computeIdealizedFlow(assembly, cs)
+    computeAxialCoolantTemperature(assembly, massFlow, cs)
 
 
-def computeIdealizedFlow(a):
-
+def computeIdealizedFlow(a, cs):
     # compute required mass flow rate in assembly to reach target outlet temperature
     # mass flow rate will be constant in each axial region, regardless of coolant
     # area (velocity may change)
     coolants = a.getComponents(Flags.COOLANT)
-    coolantMass = sum([c.getMass() for c in coolants])
 
     # use ARMI material library to get heat capacity for whatever the user has
     # defined the coolant as
-    tempAvg = (outletInC + inletInC) / 2.0
+    tempAvg = (cs["outletInC"] + cs["inletInC"]) / 2.0
     coolantProps = coolants[0].getProperties()
     heatCapacity = coolantProps.heatCapacity(Tc=tempAvg)
 
-    deltaT = outletInC - inletInC
+    deltaT = cs["outletInC"] - cs["inletInC"]
     massFlowRate = a.calcTotalParam("power") / (deltaT * heatCapacity)
     return massFlowRate
 
 
-def computeAxialCoolantTemperature(a, massFlow):
+def computeAxialCoolantTemperature(a, massFlow, cs):
     """Compute block-level coolant inlet/outlet/avg temp and velocity."""
     # solve Qdot = mdot * Cp * dT for dT this time
-    inlet = inletInC
+    inlet = cs["inletInC"]
     for b in a:
         b.p.THcoolantInletT = inlet
         coolant = b.getComponent(Flags.COOLANT)
