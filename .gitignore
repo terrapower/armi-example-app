@@ -1,7 +1,8 @@
-.mypy_cache
 *.egg-info
-__pycache__
-dist/
-build/
+.mypy_cache
 .project
 .pydevproject
+__pycache__
+build/
+dist/
+venv*

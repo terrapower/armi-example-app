@@ -2,6 +2,9 @@ from armi import interfaces
 from armi import runLog
 from armi.reactor.flags import Flags
 
+from myapp.settings import CONF_INLET_TEMPERATURE
+from myapp.settings import CONF_OUTLET_TEMPERATURE
+
 
 class ThermalInterface(interfaces.Interface):
     name = "dummyTH"
@@ -25,11 +28,11 @@ def computeIdealizedFlow(a, cs):
 
     # use ARMI material library to get heat capacity for whatever the user has
     # defined the coolant as
-    tempAvg = (cs["outletInC"] + cs["inletInC"]) / 2.0
+    tempAvg = (cs[CONF_OUTLET_TEMPERATURE] + cs[CONF_INLET_TEMPERATURE]) / 2.0
     coolantProps = coolants[0].getProperties()
     heatCapacity = coolantProps.heatCapacity(Tc=tempAvg)
 
-    deltaT = cs["outletInC"] - cs["inletInC"]
+    deltaT = cs[CONF_OUTLET_TEMPERATURE] - cs[CONF_INLET_TEMPERATURE]
     massFlowRate = a.calcTotalParam("power") / (deltaT * heatCapacity)
     return massFlowRate
 
@@ -37,7 +40,7 @@ def computeIdealizedFlow(a, cs):
 def computeAxialCoolantTemperature(a, massFlow, cs):
     """Compute block-level coolant inlet/outlet/avg temp and velocity."""
     # solve Qdot = mdot * Cp * dT for dT this time
-    inlet = cs["inletInC"]
+    inlet = cs[CONF_INLET_TEMPERATURE]
     for b in a:
         b.p.THcoolantInletT = inlet
         coolant = b.getComponent(Flags.COOLANT)
@@ -45,16 +48,6 @@ def computeAxialCoolantTemperature(a, massFlow, cs):
         heatCapacity = coolantProps.heatCapacity(Tc=inlet)
         deltaT = b.p.power / (massFlow * heatCapacity)
         outlet = inlet + deltaT
+        inlet = outlet
         b.p.THcoolantOutletT = outlet
         b.p.THcoolantAverageT = (outlet + inlet) / 2.0
-        # fun fact: could iterate on this to get
-        # heat capacity properties updated better
-        # get flow velocity too
-        # V [m/s] = mdot [kg/s] / density [kg/m^3] / area [m^2]
-        b.p.THaveCoolantVel = (
-            massFlow
-            / coolantProps.density(Tc=b.p.THcoolantAverageT)
-            / coolant.getArea()
-            * 100 ** 2
-        )
-        inlet = outlet

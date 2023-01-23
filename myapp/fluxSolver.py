@@ -27,6 +27,6 @@ def setFakePower(core):
             coords = b.spatialLocator.getGlobalCoordinates()
             r = np.linalg.norm(abs(coords - center))
             fuelFlag = 10 if b.isFuel() else 1.0
-            b.p.power = peakPower / r ** 2 * fuelFlag / b.getSymmetryFactor()
+            b.p.power = peakPower / r**2 * fuelFlag / b.getSymmetryFactor()
             b.p.pdens = b.p.power / vol
             b.p.mgFlux = mgFluxBase * b.p.pdens

@@ -7,7 +7,7 @@ from myapp import __version__ as version
 
 
 CONF_INLET_TEMPERATURE = "inletInC"
-CONF_OUTLET_TEMPERATURE = "inletInC"
+CONF_OUTLET_TEMPERATURE = "outletInC"
 CONF_MYAPP_VERSION = "myAppVersion"
 
 

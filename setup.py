@@ -14,6 +14,8 @@
 
 """Setup.py script for the Example App for ARMI"""
 from setuptools import setup, find_packages
+import os
+import pathlib
 
 
 # grab __version__ from meta.py, without calling __init__.py
@@ -37,7 +39,7 @@ setup(
     long_description=README,
     python_requires=">=3.7",
     packages=find_packages(),
-    entry_points={"console_scripts": ["armiexample = armiexample.__main__:main"]},
+    entry_points={"console_scripts": ["armiexample = myapp.__main__:main"]},
     install_requires=[
         "armi @ git+https://github.com/terrapower/armi",
         "terrapower-dragon @ git+https://github.com/terrapower/dragon-armi-plugin",

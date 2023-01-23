@@ -1,4 +1,5 @@
 # Example ARMI Application
+
 This is a simple example application using the [Advanced Reactor Modeling
 Interface (ARMI)](https://github.com/terrapower/armi). It is intended to serve
 as a jumping-off point for new ARMI users and developers. Currently, it only
@@ -10,8 +11,9 @@ are made available to the public, this project may grow to encompass them as
 well.
 
 # Getting Started
+
 As with other parts of the ARMI ecosystem, this project requires Python;
-specifically Python 3.6 or greater. With Python installed, the Example ARMI App
+specifically Python 3.7 or greater. With Python installed, the Example ARMI App
 can be installed in a couple of ways. The simplest is to install it straight
 from this GitHub repository with:
 
@@ -42,7 +44,7 @@ now:
 
 There is a simple example case in `doc/examples/ANL-AFCI-177/`, which is
 explained in more detail
-[here](https://terrapower.github.io/armi/user/tutorials/walkthrough_inputs.html).
+[here](https://terrapower.github.io/armi/tutorials/walkthrough_inputs.html).
 You should be able to change directories into `doc/examples/ANL-AFCI-177/`, and
 run the case with:
 
