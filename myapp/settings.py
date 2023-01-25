@@ -40,19 +40,19 @@ def defineValidators(inspector):
     """Define validators for the DummyPhysicsPlugin settings."""
     return [
         Query(
-            inspector.cs[CONF_INLET_TEMPERATURE] < 0.0,
+            lambda: inspector.cs[CONF_INLET_TEMPERATURE] < 0.0,
             "The inlet temperature is below 0. This is unphysical and will result in unphysical results.",
             "",
             inspector.NO_ACTION,
         ),
         Query(
-            inspector.cs[CONF_OUTLET_TEMPERATURE] < 0.0,
+            lambda: inspector.cs[CONF_OUTLET_TEMPERATURE] < 0.0,
             "The outlet temperature is below 0. This is unphysical and will result in unphysical results.",
             "",
             inspector.NO_ACTION,
         ),
         Query(
-            not validateVersion(version, inspector.cs[CONF_MYAPP_VERSION]),
+            lambda: not validateVersion(version, inspector.cs[CONF_MYAPP_VERSION]),
             "The current application version does not match the required version in the Settings file! This run is uncontrolled!",
             "",
             inspector.NO_ACTION,
