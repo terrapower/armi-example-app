@@ -1,5 +1,3 @@
-metadata:
-  version: uncontrolled
 # begin-settings
 settings:
   availabilityFactor: 0.9
@@ -20,3 +18,6 @@ settings:
   dragonDataPath: C:/Users/myoung/codes/dragonv5/draglibendfb7r1SHEM361
   numProcessors: 36
   subchan: true
+  versions:
+    armi: uncontrolled
+    armi-example-app: uncontrolled
