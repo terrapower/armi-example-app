@@ -1,6 +1,6 @@
 """Settings related to the DummyPhysicsPlugin"""
 
-from armi.operators.settingsValidation import Query, validateVersion
+from armi.operators.settingsValidation import Query
 from armi.settings import setting
 
 

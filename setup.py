@@ -29,7 +29,7 @@ with open("README.md") as f:
 
 setup(
     name="armi-example-app",
-    version=__version__,
+    version=__version__,  # noqa: F821
     description="A simple example application built using the Advanced Reactor "
     "Modeling Interface (ARMI)",
     author="TerraPower, LLC",

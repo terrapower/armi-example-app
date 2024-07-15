@@ -7,6 +7,8 @@ Code here runs whenever you run this application.
 # for `making_your_first_app.rst` in ARMI documentation.
 # (That's also why the imports aren't all at the top)
 
+# ruff: noqa: E402
+
 # tutorial-configure-start
 import armi
 
