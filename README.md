@@ -51,7 +51,7 @@ run the case with:
     > python -m armiexample run anl-afci-177.yaml
 
 This fires up the built-in `run` ARMI entry point, which creates a [Standard
-Operator](https://terrapower.github.io/armi/developer/guide.html#operators) and
+Operator](https://terrapower.github.io/armi/user/guide.html#operators) and
 runs through a single cycle, calculating cross sections using the Dragon Plugin.
 After a whole bunch of output, you should see a handful of `ISOTXS` files that
 were generated from the Dragon interface. If you see those, then you know it
